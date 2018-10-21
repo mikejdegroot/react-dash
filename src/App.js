@@ -1,15 +1,31 @@
+//app
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './css/App.css';
-import Home from './components/home'
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+
+//components
+import Header from './components/header';
+import Home from './components/home';
+import ToDo from './components/toDo';
+import Weather from './components/weather';
+
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <Home />
+      <BrowserRouter>
+        <div className='App'>
+          <Header />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/todo' component={ToDo} />
+            <Route path='/weather' component={Weather} />
+          </Switch>
+        </div>
+        </BrowserRouter>
 
-      </div>
+
     );
   }
 }
